@@ -98,11 +98,11 @@
                     </tbody>
                 </table>                                
             </div>
-            <div class="centerlistViewAllCont">
-                        <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
-                            <button type="submit" class="centerlistViewAll">전체보기&gt;</button>
-                        </form>
-                    </div>
+	            <div class="centerlistViewAllCont">
+	                <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
+	                    <button type="submit" class="centerlistViewAll">전체보기&gt;</button>
+	                </form>
+	            </div>
             </div>
             <form name="recruitmentRegister" method="post" action="centerReg.jsp" encType="utf-8">
                 <button type="submit" class="centerMainRegisterButton">등 록</button>
@@ -185,9 +185,11 @@
                         </c:choose>
                     </tbody>
                 </table>
-                <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
+                <div class="centerlistViewAllCont">
+                    <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
                         <button type="submit" class="centerlistViewAll">전체보기&gt;</button>
-                </form>
+                    </form>
+                </div>
             </div>
         </section>
 
