@@ -14,7 +14,7 @@
 
 <body>
 
-<form action="mypage_privacy_edit" method="post">
+<form action="privacyEdit" method="post">
 <!--여기부터 아래 내용 메인-->
 <div class="mypage">
     <div>개인정보수정</div><!--메뉴마다 수정-->

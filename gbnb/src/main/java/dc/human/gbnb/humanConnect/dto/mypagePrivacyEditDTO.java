@@ -1,11 +1,14 @@
 package dc.human.gbnb.humanConnect.dto;
 
-public class mypage_privacy_editDTO {
+public class mypagePrivacyEditDTO {
 
 	String name;
 	String id;
 	String pw;
+	String addr;
+	String phone;
 	String email;
+	
 	
 	
 	public String getName() {
@@ -31,6 +34,18 @@ public class mypage_privacy_editDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 }

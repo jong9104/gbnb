@@ -2,8 +2,8 @@ package dc.human.gbnb.humanConnect.servlet;
 
 import java.io.IOException;
 
-import dc.human.gbnb.humanConnect.dao.mypage_privacy_editDAO;
-import dc.human.gbnb.humanConnect.dto.mypage_privacy_editDTO;
+import dc.human.gbnb.humanConnect.dao.mypagePrivacyEditDAO;
+import dc.human.gbnb.humanConnect.dto.mypagePrivacyEditDTO;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class mypage_privacy_edit
  */
-@WebServlet("/mypage_privacy_edit")
+@WebServlet("/privacyEdit")
 public class mypage_privacy_edit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -48,16 +48,21 @@ public class mypage_privacy_edit extends HttpServlet {
 		String newName=request.getParameter("u_name");
 		String newId=request.getParameter("u_id");
 		String newPwd=request.getParameter("u_pwd");
-		String newPWdCheck=request.getParameter("u_pwdCheck");
+		String newPwdCheck=request.getParameter("u_pwdCheck");
+		String newAddr=request.getParameter("u_addr");
 		String newEmail=request.getParameter("u_email");
+		String newPhone=request.getParameter("u_phone");
 		
-		mypage_privacy_editDTO editDTO=new mypage_privacy_editDTO();
-		editDTO.setName(newName);
-		editDTO.setId(newId);
+		mypagePrivacyEditDTO editDTO=new mypagePrivacyEditDTO();
+		
+		
 		editDTO.setPw(newPwd);
 		editDTO.setEmail(newEmail);
+		editDTO.setPhone(newPhone);
+		editDTO.setAddr(newAddr);
 		
-		mypage_privacy_editDAO editDAO=new mypage_privacy_editDAO();
+		
+		mypagePrivacyEditDAO editDAO=new mypagePrivacyEditDAO();
 		editDAO.privacyEdit(editDTO);
 		
 		
