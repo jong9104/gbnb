@@ -125,15 +125,6 @@ table {
     font-family: Arial, sans-serif;
     background-color: #FDECCB;
 }
-
-.logout {
-    text-decoration: none;
-    color: #333;
-    border: 1px solid #333;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 .centerMain {
     width : 980px;
     margin: 0 auto;
@@ -175,7 +166,7 @@ table {
     text-align: center;
 }
 
-.no-data {
+.centerNoData {
     text-align: center;
     color: #888;
 }

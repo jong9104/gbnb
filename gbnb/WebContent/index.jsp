@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	import="css.*"
+<%@ page language="java" contentType="text/html; charset=EUC-KR"	
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Human Connect</title>
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="indexBody">
     <div class="indexBg" id="colorBg"></div>
