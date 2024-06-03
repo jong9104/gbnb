@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+    
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <style>
             .tempDiv{
@@ -57,92 +58,83 @@
         </style>
     </head>
     <html>
-        <div class="tempDiv">
-        <h2><input type="text"></h2>
-        <table class="tempTable">
-            <tr>
-                <td class="tempTd">∫¿ªÁ±‚∞£</td>
-                <td>
-                    <input class="dateLeft" type="date">
-                    ~
-                    <input class="dateRight" type="date">
-                </td>
-                <td class="tempTd">∫¿ªÁΩ√∞£</td>
-                <td>
-                    <input class="dateLeft" type="time">
-                    ~
-                    <input class="dateRight" type="time">
-                </td>
-            </tr>
-            <tr>
-                <td class="tempTd">∏¡˝±‚∞£</td>
-                <td>
-                    <input class="dateLeft" type="date">
-                    ~
-                    <input class="dateRight" type="date">
-                </td>
-                <td class="tempTd">»∞µøø‰¿œ</td>
-                <td>
-                    <input type="checkbox">ø˘
-                    <input type="checkbox">»≠
-                    <input type="checkbox">ºˆ
-                    <input type="checkbox">∏Ò
-                    <input type="checkbox">±›
-                    <input type="checkbox">≈‰
-                    <input type="checkbox">¿œ
-                </td>
-            </tr>
-            <tr>
-                <td class="tempTd">∏¡˝¿Œø¯</td>
-                <td><input type="text"></td>
-                <td class="tempTd">Ω≈√ª¿Œø¯</td>
-                <td>0∏Ì</td>
-            </tr>
-            <tr>
-                <td class="tempTd">∫¿ªÁ∫–æﬂ</td>
+	    <body>
+		    <form name="frmLogin" method="post" action="centerReg" encType="multipart/form-data">
+		        <div class="tempDiv">
+		        <h2><input type="text" name="vTitle"></h2>
+		        <table class="tempTable">
+		            <tr>
+		                <td class="tempTd">Î¥âÏÇ¨Í∏∞Í∞Ñ</td>
+		                <td>
+		                    <input class="dateLeft" type="date" name="vStartDate">
+		                    ~
+		                    <input class="dateRight" type="date" name="vEndDate">
+		                </td>
+		                <td class="tempTd">Î¥âÏÇ¨ÏãúÍ∞Ñ</td>
+		                <td>
+		                    <input class="dateLeft" type="time" name="vStartTime">
+		                    ~
+		                    <input class="dateRight" type="time" name="vLastTime">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td class="tempTd">Î™®ÏßëÍ∏∞Í∞Ñ</td>
+		                <td>
+		                    <input class="dateLeft" type="date" name="vRStartDate">
+		                    ~
+		                    <input class="dateRight" type="date" name="vREndDate">
+		                </td>
+		                <td class="tempTd">ÌôúÎèôÏöîÏùº</td>
+		                <td>
+		                    <input type="checkbox" name="vWorkingDay1" value="Ïõî">Ïõî
+		                    <input type="checkbox" name="vWorkingDay2" value="Ìôî">Ìôî
+		                    <input type="checkbox" name="vWorkingDay3" value="Ïàò">Ïàò
+		                    <input type="checkbox" name="vWorkingDay4" value="Î™©">Î™©
+		                    <input type="checkbox" name="vWorkingDay5" value="Í∏à">Í∏à
+		                    <input type="checkbox" name="vWorkingDay6" value="ÌÜ†">ÌÜ†
+		                    <input type="checkbox" name="vWorkingDay7" value="Ïùº">Ïùº
 
-
-                <td>
-                    <select name="±∏∫–">
-                        <option value="">º±≈√</option>
-                        <option value="√ªº“/πËΩƒ">√ªº“/πËΩƒ</option>
-                        <option value="ªÍ√•">ªÍ√•</option>
-                        <option value="∏ÒøÂ">∏ÒøÂ</option>
-                        <option value="ªÁ¡¯">ªÁ¡¯</option>
-                        <option value="πÃøÎ">πÃøÎ</option>
-                        <option value="¿Ãµø">¿Ãµø</option>
-                        <option value="¿«∑·">¿«∑·</option>
-                    </select>
-                </td>
-                <td class="tempTd">∫¿ªÁ¿⁄¿Ø«¸</td>
-                <td>
-                    <select name="±∏∫–">
-                        <option value="">º±≈√</option>
-                        <option value="æ∆µø">æ∆µø</option>
-                        <option value="«–ª˝">«–ª˝</option>
-                        <option value="º∫¿Œ">º∫¿Œ</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="tempTd">ºæ≈Õ∏Ì</td>
-                <td colspan="3"><input type="text"></td>
-            </tr>
-            <tr>
-                <td class="tempTd">∫¿ªÁ¿Âº“</td>
-                <td colspan="3"><input type="text"></td>
-            </tr>
-            <tr>
-                <td class="tempTd">√∑∫Œ∆ƒ¿œ</td>
-                <td colspan="3"><input type="file"></td>
-            </tr>
-        </table>
-        <div class="tempDiv2">
-            <textarea></textarea>
-        </div>
-        <button>µÓ∑œ</button>
-        <button>√Îº“</button>
-    </div>
-
+		                </td>
+		            </tr>
+		            <tr>
+		                <td class="tempTd">Î™®ÏßëÏù∏Ïõê</td>
+		                <td><input type="text" name="vRegAmnt"></td>
+		                <td class="tempTd">Î¥âÏÇ¨Î∂ÑÏïº</td>
+		                <td>
+		                <select  name="vServiceCode">
+		                        <option value="">ÏÑ†ÌÉù</option>
+		                        <option value="1">Ï≤≠ÏÜå/Î∞∞Ïãù</option>
+		                        <option value="2">ÏÇ∞Ï±Ö</option>
+		                        <option value="3">Î™©Ïöï</option>
+		                        <option value="4">ÏÇ¨ÏßÑ</option>
+		                        <option value="5">ÎØ∏Ïö©</option>
+		                        <option value="6">Ïù¥Îèô</option>
+		                        <option value="7">ÏùòÎ£å</option>
+		                    </select>
+		                </td>
+		            </tr>
+		            <tr>
+		               <td class="tempTd">ÏÑºÌÑ∞Î™Ö</td>
+		                <td>
+		                    ÏÑºÌÑ∞Î™Ö
+		                </td>
+		                <td class="tempTd">Î¥âÏÇ¨Ïû•ÏÜå</td>
+		                <td>
+		                    Î¥âÏÇ¨Ïû•ÏÜå
+		                </td>
+		            </tr>
+		            <tr>
+		                <td class="tempTd">Ï≤®Î∂ÄÌååÏùº</td>
+		                <td colspan="3"><input type="file" name="vUploadFilePath"></td>
+		            </tr>
+		        </table>
+		        <div class="tempDiv2">
+		            <textarea name="vInfo"></textarea>
+		        </div>
+		        <input type="submit" value="Îì±Î°ù">
+		        <button>Ï∑®ÏÜå</button>
+		    </div>
+		    </form>
+		</body>
     </html>
 </html>

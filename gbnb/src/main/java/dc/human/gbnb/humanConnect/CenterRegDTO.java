@@ -1,24 +1,23 @@
 package dc.human.gbnb.humanConnect;
 
-import java.sql.Date;
-import java.sql.Time;
 
 public class CenterRegDTO {
 	
 	private String uId;
 	private String vTitle;
-	private Date vStartDate;
-	private Date vEndDate;
-	private Time vStartTime;
-	private Time vLastTime;
-	private Date vRStartDate;
-	private Date vREndDate;
+	private String vStartDate;
+	private String vEndDate;
+	private String vStartTime;
+	private String vLastTime;
+	private String vRStartDate;
+	private String vREndDate;
+	private String vWorkingDay;
+	private int vServiceCode;
 	private int vMaxAmnt;
 	private int vRegAmnt;
 	private int vState;
 	private String vUploadFilePath;
-	
-	
+	private String vInfo;
 	
 	public String getuId() {
 		return uId;
@@ -32,41 +31,53 @@ public class CenterRegDTO {
 	public void setvTitle(String vTitle) {
 		this.vTitle = vTitle;
 	}
-	public Date getvStartDate() {
+	public String getvStartDate() {
 		return vStartDate;
 	}
-	public void setvStartDate(Date vStartDate) {
+	public void setvStartDate(String vStartDate) {
 		this.vStartDate = vStartDate;
 	}
-	public Date getvEndDate() {
+	public String getvEndDate() {
 		return vEndDate;
 	}
-	public void setvEndDate(Date vEndDate) {
+	public void setvEndDate(String vEndDate) {
 		this.vEndDate = vEndDate;
 	}
-	public Time getvStartTime() {
+	public String getvStartTime() {
 		return vStartTime;
 	}
-	public void setvStartTime(Time vStartTime) {
+	public void setvStartTime(String vStartTime) {
 		this.vStartTime = vStartTime;
 	}
-	public Time getvLastTime() {
+	public String getvLastTime() {
 		return vLastTime;
 	}
-	public void setvLastTime(Time vLastTime) {
+	public void setvLastTime(String vLastTime) {
 		this.vLastTime = vLastTime;
 	}
-	public Date getvRStartDate() {
+	public String getvRStartDate() {
 		return vRStartDate;
 	}
-	public void setvRStartDate(Date vRStartDate) {
+	public void setvRStartDate(String vRStartDate) {
 		this.vRStartDate = vRStartDate;
 	}
-	public Date getvREndDate() {
+	public String getvREndDate() {
 		return vREndDate;
 	}
-	public void setvREndDate(Date vREndDate) {
+	public void setvREndDate(String vREndDate) {
 		this.vREndDate = vREndDate;
+	}
+	public String getvWorkingDay() {
+		return vWorkingDay;
+	}
+	public void setvWorkingDay(String vWorkingDay) {
+		this.vWorkingDay = vWorkingDay;
+	}
+	public int getvServiceCode() {
+		return vServiceCode;
+	}
+	public void setvServiceCode(int vServiceCode) {
+		this.vServiceCode = vServiceCode;
 	}
 	public int getvMaxAmnt() {
 		return vMaxAmnt;
@@ -92,6 +103,19 @@ public class CenterRegDTO {
 	public void setvUploadFilePath(String vUploadFilePath) {
 		this.vUploadFilePath = vUploadFilePath;
 	}
+	public String getvInfo() {
+		return vInfo;
+	}
+	public void setvInfo(String vInfo) {
+		this.vInfo = vInfo;
+	}
+
+	
+
+
+	
+	
+
 
 
 
