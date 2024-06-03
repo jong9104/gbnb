@@ -10,7 +10,6 @@ public class mypagePrivacyEditDTO {
 	String email;
 	
 	
-	
 	public String getName() {
 		return name;
 	}
