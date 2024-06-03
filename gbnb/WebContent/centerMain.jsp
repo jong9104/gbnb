@@ -36,49 +36,49 @@
                     </thead>
                     <tbody>
                         <c:choose>
-                            <c:when test="${empty recruitmentApplications}">
+                            <c:when test="${empty RecruitmentList}">
                                 <tr>
                                     <td colspan="5" class="centerNoData">표시할 데이터가 없습니다</td>
                                 </tr>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach var="application" items="${recruitmentApplications}">
+                                <c:forEach var="dto" items="${RecruitmentList}">
                                     <tr>
-                                        <td>${application.userId}</td>
-                                        <td>${application.name}</td>
-                                        <td>${application.phone}</td>
+                                        <td>${dto.id}</td>
+                                        <td>${dto.name}</td>
+                                        <td>${dto.phone}</td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${application.status == 'pending'}">
+                                                <c:when test="${dto.status == 'pending'}">
                                                     <form method="post">
-                                                        <input type="hidden" name="userId" value="${application.userId}">
+                                                        <input type="hidden" name="userId" value="${dto.id}">
                                                         <input type="hidden" name="action" value="approve">
                                                         <button type="submit">승인</button>
                                                     </form>
                                                     <form method="post">
-                                                        <input type="hidden" name="userId" value="${application.userId}">
+                                                        <input type="hidden" name="userId" value="${dto.id}">
                                                         <input type="hidden" name="action" value="reject">
-                                                        <button type="button" onclick="showRejectReason('${application.userId}')">거절</button>
+                                                        <button type="button" onclick="showRejectReason('${dto.id}')">거절</button>
                                                     </form>
-                                                    <div id="reject-reason-${application.userId}" style="display:none;">
+                                                    <div id="reject-reason-${dto.userId}" style="display:none;">
                                                         <form method="post">
-                                                            <input type="hidden" name="userId" value="${application.userId}">
+                                                            <input type="hidden" name="userId" value="${dto.id}">
                                                             <input type="hidden" name="action" value="reject">
                                                             <input type="text" name="rejectReason" placeholder="거절 사유를 입력하세요" />
                                                             <button type="submit">등록</button>
-                                                            <button type="button" onclick="hideRejectReason('${application.userId}')">취소</button>
+                                                            <button type="button" onclick="hideRejectReason('${dto.id}')">취소</button>
                                                         </form>
                                                     </div>
                                                 </c:when>
                                                 <c:when test="${application.status == 'approved'}">
                                                     <form method="post">
-                                                        <input type="hidden" name="userId" value="${application.userId}">
+                                                        <input type="hidden" name="userId" value="${dto.id}">
                                                         <input type="hidden" name="action" value="complete">
                                                         <button type="submit">봉사완료</button>
                                                     </form>
                                                 </c:when>
                                                 <c:when test="${application.status == 'rejected'}">
-                                                    <div>거절됨: ${application.rejectReason}</div>
+                                                    <div>거절됨: ${dto.rejectReason}</div>
                                                 </c:when>
                                                 <c:when test="${application.status == 'completed'}">
                                                     <div>봉사완료</div>
@@ -87,7 +87,7 @@
                                         </td>
                                         <td>
                                             <form method="get" action="RecruitmentMain.jsp">
-                                                <input type="hidden" name="userId" value="${application.userId}">
+                                                <input type="hidden" name="userId" value="${dto.id}">
                                                 <button type="submit">상세내용보기</button>
                                             </form>
                                         </td>
@@ -96,8 +96,7 @@
                             </c:otherwise>
                         </c:choose>
                     </tbody>
-                </table>
-                <a href="#" class="view-all">전체보기&gt;</a>                
+                </table>                                
             </div>
             <div class="centerlistViewAllCont">
                         <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
@@ -186,7 +185,9 @@
                         </c:choose>
                     </tbody>
                 </table>
-                <a href="#" class="view-all">전체보기&gt;</a>
+                <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
+                        <button type="submit" class="centerlistViewAll">전체보기&gt;</button>
+                </form>
             </div>
         </section>
 
@@ -227,7 +228,11 @@
                         </c:choose>
                     </tbody>
                 </table>                
-                <a href="#" class="view-all">전체보기&gt;</a>
+                <div class="centerlistViewAllCont">
+                    <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
+                        <button type="submit" class="centerlistViewAll">전체보기&gt;</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
