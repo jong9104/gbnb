@@ -5,16 +5,18 @@
 <head>
 <meta charset="EUC-KR">
 <title>Human Connect</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="indexBody">
     <div class="indexBg" id="colorBg"></div>
     <div class="indexCircle" id="indexCircle"></div>
     <div class="indexChange" id="indexChange">
-        <span>
-            <img src="../img/logo.png" width="750px" alt="로고">
-            <button id="indexLogin">로그인</button>
-        </span>
+    	<span>
+	        <form name="indexLogin" method="post" action="login.jsp" encType="utf-8" >
+	            <img src="../img/logo.png" width="750px" alt="로고">
+	            <button id="indexLogin" type="submit">로그인</button>
+	        </form>
+	    </span>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
