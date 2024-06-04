@@ -13,12 +13,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/centerMain")
-public class centerMain extends HttpServlet {
+public class CenterMainServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private centerMainDAO dao = new centerMainDAO(); ;
 
-    public centerMain() {
+    public CenterMainServlet() {
         super();       
     }
 
