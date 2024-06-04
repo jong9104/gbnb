@@ -12,9 +12,7 @@ public class volunteerListDAO {
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.38/xe", "c##gbnb", "gbnb");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -27,11 +25,12 @@ public class volunteerListDAO {
 	public List<volunteerDTO> getVolunteers() {
 		List<volunteerDTO> volunteers = new ArrayList<>();
 		String query = "SELECT * FROM volunteer";
-
-		try (Connection conn = getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(query);
-				ResultSet rs = pstmt.executeQuery()) {
-
+		
+		try{
+			Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
 				volunteerDTO volunteer = new volunteerDTO();
 				volunteer.setU_id(rs.getString("U_ID"));

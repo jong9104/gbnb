@@ -14,16 +14,13 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/volunteerList")	
 public class volunteerListServlet extends HttpServlet {
 
-    protected void doHandle(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         volunteerListDAO dao = new volunteerListDAO();
         List<volunteerDTO> volunteerList = dao.getVolunteers();
         
         request.setAttribute("volunteerList", volunteerList);
         request.getRequestDispatcher("/volunteerList.jsp").forward(request, response);
-    }
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
     }
 }
