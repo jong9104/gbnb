@@ -59,7 +59,7 @@
     </head>
     <html>
 	    <body>
-		    <form name="frmLogin" method="post" action="centerReg" encType="UTF-8">
+		    <form name="centerReg" method="post" action="centerReg" encType="UTF-8">
 		        <div class="tempDiv">
 		        <h2><input type="text" name="vTitle"></h2>
 		        <table class="tempTable">
