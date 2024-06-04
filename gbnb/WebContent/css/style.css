@@ -274,15 +274,22 @@ header{
     color: #888;
 }
 
-.view-all {
-    text-decoration: none;
-    text-align : right;
-    color: #333;
-    display: inline-block;
+.centerlistViewAllCont {    
+    display: flex;
+    justify-content: flex-end;
     margin-top: 10px;
 }
+.centerlistViewAll{
+    float: right;
+    text-decoration : none;
+    border: none;
+    background-color: #fff;
+}
+.centerlistViewAll:hover{
+    cursor: pointer;
+}
 
-.register-button {
+.centerMainRegisterButton {
     display: block;
     float : right;
     width: 15%;
@@ -295,7 +302,7 @@ header{
     cursor: pointer;
 }
 
-.register-button:hover {
+.centerMainRegisterButton:hover {
     background-color: #555;
 }
 /**임시~~*****************************************************************************************************************/

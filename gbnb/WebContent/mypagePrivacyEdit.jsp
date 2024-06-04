@@ -28,13 +28,21 @@
                 <table>
                     <tr>
                         <td>성명</td>
+<<<<<<< HEAD
                         <td><c:out value="${user.name}"/></td>
+=======
+                        <td>nameDB</td>
+>>>>>>> refs/remotes/origin/master
                     </tr>
                     <tr>
                         <td>아이디</td>
+<<<<<<< HEAD
                         <td>                        	
                         	<label name="u_id" value="${user.userId}">${user.userId}</span>
                         </td>
+=======
+                        <td>idDB</td>
+>>>>>>> refs/remotes/origin/master
                     </tr>
                     <tr>
                         <td>비밀번호</td>
@@ -46,11 +54,17 @@
                     </tr>
                     <tr>
                         <td rowspan="2">주소</td> <!--이거 확인해보기 표 보더 만들어서-->
-                        <td>주소</td>
+                        <td>주소DB</td>
                         
                     </tr>
+<<<<<<< HEAD
                     <tr>                        
                         <td>상세주소. 표 확인해보기</td>
+=======
+                    <tr>
+                        
+                        <td>상세주소DB</td>
+>>>>>>> refs/remotes/origin/master
                     </tr>
                     <tr>
                         <td>이메일</td>
