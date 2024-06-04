@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="jakarta.servlet.http.HttpServletRequest" %>
+<%@ page import="dc.human.gbnb.humanConnect.dto.UserDTO" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,11 +28,21 @@
                 <table>
                     <tr>
                         <td>성명</td>
+<<<<<<< HEAD
+                        <td><c:out value="${user.name}"/></td>
+=======
                         <td>nameDB</td>
+>>>>>>> refs/remotes/origin/master
                     </tr>
                     <tr>
                         <td>아이디</td>
+<<<<<<< HEAD
+                        <td>                        	
+                        	<label name="u_id" value="${user.userId}">${user.userId}</span>
+                        </td>
+=======
                         <td>idDB</td>
+>>>>>>> refs/remotes/origin/master
                     </tr>
                     <tr>
                         <td>비밀번호</td>
@@ -42,15 +57,23 @@
                         <td>주소DB</td>
                         
                     </tr>
+<<<<<<< HEAD
+                    <tr>                        
+                        <td>상세주소. 표 확인해보기</td>
+=======
                     <tr>
                         
                         <td>상세주소DB</td>
+>>>>>>> refs/remotes/origin/master
                     </tr>
                     <tr>
                         <td>이메일</td>
                         <td><input type="text" name="u_email"></td>
                     </tr>
-                    
+                    <tr>
+                        <td>전화번호</td>
+                        <td><input type="text" name="u_phone"></td>
+                    </tr>
                 </table>
             </div>
             <div><input type="button" value="탈퇴" name="action"></div>

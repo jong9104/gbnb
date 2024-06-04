@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import dc.human.gbnb.humanConnect.dto.UserDTO;
 import dc.human.gbnb.humanConnect.dto.mypagePrivacyEditDTO;
 
 public class mypagePrivacyEditDAO {
@@ -28,9 +29,10 @@ public class mypagePrivacyEditDAO {
 		String pw=DTO.getPw();
 		String email=DTO.getEmail();
 		String phone=DTO.getPhone();
-		String addr=DTO.getPhone();
+		String addr=DTO.getAddr();
 		
 		try{
+			System.out.println(id);
 			String sql="UPDATE VOLUNTEER_USER "
 					+ "SET U_PWD='"+pw+"', U_EMAIL='"+email+"' , U_PHONE='"+phone+"'"
 					+ "WHERE U_ID='"+id+"'";
@@ -38,10 +40,14 @@ public class mypagePrivacyEditDAO {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.executeQuery();
 			
-			System.out.println("행이 변경됨.");
+			System.out.println("정보 변경됨.");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) {
+		
 	}
 	
 }

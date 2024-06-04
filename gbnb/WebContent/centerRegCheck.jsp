@@ -3,6 +3,19 @@
     <%
 
 String vTitle = (String) request.getAttribute("vTitle");
+String vStartDate = (String) request.getAttribute("vStartDate");
+String vEndDate = (String) request.getAttribute("vEndDate");
+String vStartTime = (String) request.getAttribute("vStartTime");
+String vLastTime = (String) request.getAttribute("vLastTime");
+String vRStartDate = (String) request.getAttribute("vRStartDate");
+String vREndDate = (String) request.getAttribute("vREndDate");
+String vWorkingDay = (String) request.getAttribute("vWorkingDay");
+int vServiceCode = (int) request.getAttribute("vServiceCode");
+int vRegAmnt = (int) request.getAttribute("vRegAmnt");
+String vUploadFilePath = (String) request.getAttribute("vUploadFilePath");
+String vInfo = (String) request.getAttribute("vInfo");
+vWorkingDay = vWorkingDay.replace("null",",");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -48,24 +61,41 @@ String vTitle = (String) request.getAttribute("vTitle");
     </head>
     <html>
     <body>
+
+    
+    
+    
+    <form name="centerRegCheck" method="post" action="centerRegCheck" encType="UTF-8">
         <div class="tempDiv">
-        <h2>충남 반려동물 입양센터(천안) 센터 청소(주말)</h2>
+    <input type="hidden" name="vTitle" value=<%= vTitle %>>
+    <input type="hidden" name="vStartDate" value=<%= vStartDate %>>
+    <input type="hidden" name="vEndDate" value=<%= vEndDate %>>
+    <input type="hidden" name="vStartTime" value=<%= vStartTime %>>
+    <input type="hidden" name="vLastTime" value=<%= vLastTime %>>
+    <input type="hidden" name="vRStartDate" value=<%= vRStartDate %>>
+    <input type="hidden" name="vREndDate" value=<%= vREndDate %>>
+    <input type="hidden" name="vWorkingDay" value=<%= vWorkingDay %>>
+    <input type="hidden" name="vServiceCode" value=<%= vServiceCode %>>
+    <input type="hidden" name="vRegAmnt" value=<%= vRegAmnt %>>
+    <input type="hidden" name="vUploadFilePath" value=<%= vUploadFilePath %>>
+    <input type="hidden" name="vInfo" value=<%= vInfo %>>
+        <h2><%= vTitle %></h2>
         <table class="tempTable">
             <tr>
                 <td class="tempTd">봉사기간</td>
-                <td>2024.06.01~2024.06.30</td>
+                <td><%= vStartDate %> ~ <%= vEndDate %></td>
                 <td class="tempTd">봉사시간</td>
-                <td>09시40분~13시40분</td>
+                <td><%= vStartTime %> ~ <%= vLastTime %></td>
             </tr>
             <tr>
                 <td class="tempTd">모집기간</td>
-                <td>2024.05.20~2024.05.29</td>
+                <td><%= vRStartDate %> ~ <%= vREndDate %></td>
                 <td class="tempTd">활동요일</td>
-                <td>토,일</td>
+                <td><%= vWorkingDay %></td>
             </tr>
             <tr>
                 <td class="tempTd">모집인원</td>
-                <td>10명</td>
+                <td><%= vRegAmnt %>명</td>
                 <td class="tempTd">신청인원</td>
                 <td>0명</td>
             </tr>
@@ -85,19 +115,17 @@ String vTitle = (String) request.getAttribute("vTitle");
             </tr>
             <tr>
                 <td class="tempTd">첨부파일</td>
-                <td colspan="3">휴먼보호센터 모집요강.hwp</td>
+                <td colspan="3"><%= vUploadFilePath %></td>
             </tr>
         </table>
         <div class="tempDiv2">
-            모집요강 / 자격요건 / 주의사항
+            <%= vInfo %>
         </div>
-        <button>수정</button>
-        <button>삭제</button>
-        <button>확인</button>
+        <a href ="centerReg.jsp">수정</a>
+        <a href ="#">삭제</a>
+        <input type="submit" value="확인">
     </div>
-
-
-<p>센터 제목: <%= vTitle %></p>
+</form>
 </body>
     </html>
 </html>

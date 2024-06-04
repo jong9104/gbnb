@@ -1,4 +1,4 @@
-package dc.human.gbnb.humanConnect;
+package dc.human.gbnb.humanConnect.dto;
 
 
 public class CenterRegDTO {
