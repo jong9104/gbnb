@@ -15,7 +15,7 @@ public class centerMainDAO {
 
     public centerMainDAO() {
     	try{
-			Class.forName("oracle.jdbc.OracleDriver");
+    		Class.forName("oracle.jdbc.OracleDriver");
 			
 			con=DriverManager.getConnection(
 					"jdbc:oracle:thin:@192.168.0.38/xe",
@@ -29,9 +29,9 @@ public class centerMainDAO {
 
     public List<centerMainDTO> getRecruitmentList() {
         List<centerMainDTO> list = new ArrayList<>();
-        String query = "SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user as U"
-        		+ "where volunteer_reg.u_id = u.u_id and"
-        		+ "volunteer_reg.v_no = 0";
+        String query = "SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user U, volunteer_reg R"
+        		+ " where r.u_id = u.u_id and"
+        		+ " R.v_no = 0";
         
         try {
             pstmt = con.prepareStatement(query);
@@ -55,9 +55,9 @@ public class centerMainDAO {
 
     public List<centerMainDTO> getVolunteerList() {
         List<centerMainDTO> list = new ArrayList<>();
-        String query = "SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user as U"
-        		+ "where volunteer_reg.u_id = u.u_id and"
-        		+ "volunteer_reg.v_no = 1";
+        String query = "SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user U, volunteer_reg R"
+        		+ " where R.u_id = u.u_id and"
+        		+ " R.v_no = 1";
         
         try {
             pstmt = con.prepareStatement(query);
@@ -78,11 +78,11 @@ public class centerMainDAO {
         
         return list;
     }
-    //입양리스트
+
     public List<centerMainDTO> getAdoptionList() {
         List<centerMainDTO> list = new ArrayList<>();
-        String query ="SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user as U"
-        		+ "where adopt_reg.u_id = u.u_id";
+        String query ="SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user U, adopt_reg A"
+        		+ " where a.u_id = u.u_id";
         
         try {
             pstmt = con.prepareStatement(query);
@@ -103,7 +103,23 @@ public class centerMainDAO {
         
         return list;
     }
+    public void updateStatus(String userId, int status, String rejectReason) {
+        String query = "INSERT INTO ACCEPTION_RES(REG_RESULT,REJECT_RS,CREATED_DATE,CREATED_ID)"
+        		+ " VALUES(?,?,sysdate,?)";
 
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setInt(1, status);
+            pstmt.setString(2, rejectReason);
+            pstmt.setString(3, userId);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResources();
+        }
+    }
+    
     private void closeResources() {
         try {
             if (rs != null) rs.close();
@@ -112,5 +128,25 @@ public class centerMainDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public String getLatestRecruitmentTitle() {
+        String title = "";
+        String query = "SELECT V_TITLE FROM VOLUNTEER ORDER BY created_date DESC FETCH FIRST 1 ROWS ONLY";
+
+        try {
+            pstmt = con.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                title = rs.getString("V_TITLE");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResources();
+        }
+
+        return title;
     }
 }

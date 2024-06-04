@@ -24,6 +24,7 @@
         <section class="centerSection">
             <h2>모집신청내역</h2>
             <div class="centerBox">
+            <h3>${latestRecruitmentTitle}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -70,14 +71,14 @@
                                                         </form>
                                                     </div>
                                                 </c:when>
-                                                <c:when test="${application.status == 'approved'}">
+                                                <c:when test="${dto.status == 'approved'}">
                                                     <form method="post">
                                                         <input type="hidden" name="userId" value="${dto.id}">
                                                         <input type="hidden" name="action" value="complete">
                                                         <button type="submit">봉사완료</button>
                                                     </form>
                                                 </c:when>
-                                                <c:when test="${application.status == 'rejected'}">
+                                                <c:when test="${dto.status == 'rejected'}">
                                                     <div>거절됨: ${dto.rejectReason}</div>
                                                 </c:when>
                                                 <c:when test="${application.status == 'completed'}">
@@ -96,17 +97,19 @@
                             </c:otherwise>
                         </c:choose>
                     </tbody>
-                </table>                                
-            </div>
-	            <div class="centerlistViewAllCont">
+                </table> 
+                 <div class="centerlistViewAllCont">
 	                <form name="viewall" method="post" action="봉사모집리스트" encType="utf-8">
 	                    <button type="submit" class="centerlistViewAll">전체보기&gt;</button>
 	                </form>
 	            </div>
+	                                           
             </div>
-            <form name="recruitmentRegister" method="post" action="centerReg.jsp" encType="utf-8">
+	           
+            </div>
+          <form name="recruitmentRegister" method="post" action="centerReg.jsp" encType="utf-8">
                 <button type="submit" class="centerMainRegisterButton">등 록</button>
-            </form>
+            </form>  
         </section>
 
         <section class="centerSection">
@@ -124,58 +127,58 @@
                     </thead>
                     <tbody>
                         <c:choose>
-                            <c:when test="${empty volunteerApplications}">
+                            <c:when test="${empty volunteerList}">
                                 <tr>
                                     <td colspan="5" class="centerNoData">표시할 데이터가 없습니다</td>
                                 </tr>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach var="application" items="${volunteerApplications}">
+                                <c:forEach var="application" items="${volunteerList}">
                                     <tr>
-                                        <td>${application.userId}</td>
-                                        <td>${application.name}</td>
-                                        <td>${application.phone}</td>
+                                        <td>${dto.userId}</td>
+                                        <td>${dto.name}</td>
+                                        <td>${dto.phone}</td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${application.status == 'pending'}">
+                                                <c:when test="${dto.status == 'pending'}">
                                                     <form method="post">
-                                                        <input type="hidden" name="userId" value="${application.userId}">
+                                                        <input type="hidden" name="userId" value="${dto.userId}">
                                                         <input type="hidden" name="action" value="approve">
                                                         <button type="submit">승인</button>
                                                     </form>
                                                     <form method="post">
-                                                        <input type="hidden" name="userId" value="${application.userId}">
+                                                        <input type="hidden" name="userId" value="${dto.userId}">
                                                         <input type="hidden" name="action" value="reject">
-                                                        <button type="button" onclick="showRejectReason('${application.userId}')">거절</button>
+                                                        <button type="button" onclick="showRejectReason('${dto.userId}')">거절</button>
                                                     </form>
-                                                    <div id="reject-reason-${application.userId}" style="display:none;">
+                                                    <div id="reject-reason-${dto.userId}" style="display:none;">
                                                         <form method="post">
-                                                            <input type="hidden" name="userId" value="${application.userId}">
+                                                            <input type="hidden" name="userId" value="${dto.userId}">
                                                             <input type="hidden" name="action" value="reject">
                                                             <input type="text" name="rejectReason" placeholder="거절 사유를 입력하세요" />
                                                             <button type="submit">등록</button>
-                                                            <button type="button" onclick="hideRejectReason('${application.userId}')">취소</button>
+                                                            <button type="button" onclick="hideRejectReason('${dto.userId}')">취소</button>
                                                         </form>
                                                     </div>
                                                 </c:when>
-                                                <c:when test="${application.status == 'approved'}">
+                                                <c:when test="${dto.status == 'approved'}">
                                                     <form method="post">
-                                                        <input type="hidden" name="userId" value="${application.userId}">
+                                                        <input type="hidden" name="userId" value="${dto.userId}">
                                                         <input type="hidden" name="action" value="complete">
                                                         <button type="submit">봉사완료</button>
                                                     </form>
                                                 </c:when>
-                                                <c:when test="${application.status == 'rejected'}">
-                                                    <div>거절됨: ${application.rejectReason}</div>
+                                                <c:when test="${dto.status == 'rejected'}">
+                                                    <div>거절됨: ${dto.rejectReason}</div>
                                                 </c:when>
-                                                <c:when test="${application.status == 'completed'}">
+                                                <c:when test="${dto.status == 'completed'}">
                                                     <div>봉사완료</div>
                                                 </c:when>
                                             </c:choose>
                                         </td>
                                         <td>
                                             <form method="get" action="VolunteerMain.jsp">
-                                                <input type="hidden" name="userId" value="${application.userId}">
+                                                <input type="hidden" name="userId" value="${dto.userId}">
                                                 <button type="submit">상세내용보기</button>
                                             </form>
                                         </td>
@@ -207,20 +210,20 @@
                     </thead>
                     <tbody>
                         <c:choose>
-                            <c:when test="${empty adoptionApplications}">
+                            <c:when test="${empty adoptionList}">
                                 <tr>
                                     <td colspan="4" class="centerNoData">표시할 데이터가 없습니다</td>
                                 </tr>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach var="application" items="${adoptionApplications}">
+                                <c:forEach var="application" items="${adoptionList}">
                                     <tr>
-                                        <td>${application.userId}</td>
-                                        <td>${application.name}</td>
-                                        <td>${application.phone}</td>
+                                        <td>${dto.userId}</td>
+                                        <td>${dto.name}</td>
+                                        <td>${dto.phone}</td>
                                         <td>
                                             <form method="get" action="AdoptionMain.jsp">
-                                                <input type="hidden" name="userId" value="${application.userId}">
+                                                <input type="hidden" name="userId" value="${dto.userId}">
                                                 <button type="submit">상세내용보기</button>
                                             </form>
                                         </td>
