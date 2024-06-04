@@ -78,7 +78,7 @@ public class centerMainDAO {
         
         return list;
     }
-    //입양리스트
+    
     public List<centerMainDTO> getAdoptionList() {
         List<centerMainDTO> list = new ArrayList<>();
         String query ="SELECT U.U_ID, U.U_NAME, U.U_PHONE FROM volunteer_user as U"
