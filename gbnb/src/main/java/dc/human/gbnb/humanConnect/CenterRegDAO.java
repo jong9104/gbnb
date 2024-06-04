@@ -16,14 +16,14 @@ import javax.sql.DataSource;
 
 public class CenterRegDAO {
    
-   private static final String driver = "oracle.jdbc.driver.OracleDriver";
+//   private static final String driver = "oracle.jdbc.driver.OracleDriver";
 
       
    private PreparedStatement pstmt;
    private Connection con;
    private DataSource dataFactory;
    
-   public void addCenterReg(CenterRegDTO CenterRegDTO) {
+   public void addCenterReg(CenterRegDTO centerRegDTO) {
       try {
     	  Class.forName("oracle.jdbc.OracleDriver");
     	  con=DriverManager.getConnection(
@@ -32,18 +32,18 @@ public class CenterRegDAO {
 	               "gbnb"
 	               );
 
-         String vTitle = CenterRegDTO.getvTitle();
-         String vStartDate = CenterRegDTO.getvStartDate();
-         String vEndDate = CenterRegDTO.getvEndDate();
-         String vStartTime = CenterRegDTO.getvStartTime();
-         String vLastTime = CenterRegDTO.getvLastTime();
-         String vRStartDate = CenterRegDTO.getvRStartDate();
-         String vREndDate = CenterRegDTO.getvREndDate();
-         String vWorkingDay = CenterRegDTO.getvWorkingDay();
-         int vServiceCode = CenterRegDTO.getvServiceCode();         
-         int vRegAmnt = CenterRegDTO.getvRegAmnt();
-         String vUploadFilePath = CenterRegDTO.getvUploadFilePath();
-         String vInfo = CenterRegDTO.getvInfo();
+         String vTitle = centerRegDTO.getvTitle();
+         String vStartDate = centerRegDTO.getvStartDate();
+         String vEndDate = centerRegDTO.getvEndDate();
+         String vStartTime = centerRegDTO.getvStartTime();
+         String vLastTime = centerRegDTO.getvLastTime();
+         String vRStartDate = centerRegDTO.getvRStartDate();
+         String vREndDate = centerRegDTO.getvREndDate();
+         String vWorkingDay = centerRegDTO.getvWorkingDay();
+         int vServiceCode = centerRegDTO.getvServiceCode();         
+         int vRegAmnt = centerRegDTO.getvRegAmnt();
+         String vUploadFilePath = centerRegDTO.getvUploadFilePath();
+         String vInfo = centerRegDTO.getvInfo();
          
          
          
@@ -100,37 +100,46 @@ public class CenterRegDAO {
 //      }
 //   }
 //   
-//   public List listMembers() {
-//      List list = new ArrayList();
-//      try {
-////         connDB();
-//        con=dataFactory.getConnection();
-//         String query = "select * from t_member ";
-//         System.out.println("prepareStatement: "+query);
-//         pstmt = con.prepareStatement(query);
-//         ResultSet rs = pstmt.executeQuery(query);
-//         while (rs.next()) {
-//            String id = rs.getString("id");
-//            String pwd = rs.getString("pwd");
-//            String name = rs.getString("name");
-//            String email = rs.getString("email");
-//            Date joinDate = rs.getDate("joinDate");
-//            CenterRegDTO vo = new CenterRegDTO();
-//            vo.setId(id);
-//            vo.setPwd(pwd);
-//            vo.setName(name);
-//            vo.setEmail(email);
-//            vo.setJoinDate(joinDate);
-//            list.add(vo);
-//         }
-//         rs.close();
-//         pstmt.close();
-//         con.close();
-//         } catch (Exception e) {
-//            e.printStackTrace();
-//         }
-//      return list;
-//   }
+   public List listCenterReg(CenterRegDTO centerRegDTO) {
+      List list = new ArrayList();
+      try {
+//         connDB();
+    	  Class.forName("oracle.jdbc.OracleDriver");
+    	  con=DriverManager.getConnection(
+	               "jdbc:oracle:thin:@192.168.0.38/xe",
+	               "c##gbnb",
+	               "gbnb"
+	               );
+    	 String vTitle = centerRegDTO.getvTitle();
+         String query = "select U_ID,V_TITLE,V_START_DATE,V_END_DATE,V_START_TIME,V_LAST_TIME,V_RSTART_DATE,V_REND_DATE,V_WORKING_DAY,SERVICE_CODE,V_MAX_AMNT,V_REG_AMNT,V_STATE,V_UPLOAD_FILE_PATH,V_INFO from volunteer where V_TITLE=? ";
+         System.out.println("prepareStatement: "+query);
+         pstmt = con.prepareStatement(query);
+         pstmt.setString(1, vTitle);
+         
+         
+         ResultSet rs = pstmt.executeQuery(query);
+         while (rs.next()) {
+            String id = rs.getString("id");
+            String pwd = rs.getString("pwd");
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            Date joinDate = rs.getDate("joinDate");
+            CenterRegDTO vo = new CenterRegDTO();
+            vo.setId(id);
+            vo.setPwd(pwd);
+            vo.setName(name);
+            vo.setEmail(email);
+            vo.setJoinDate(joinDate);
+            list.add(vo);
+         }
+         rs.close();
+         pstmt.close();
+         con.close();
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+      return list;
+   }
 //   
 //   public boolean isExisted(CenterRegDTO CenterRegDTO) {
 //      boolean result = false;

@@ -4,14 +4,18 @@ package dc.human.gbnb.humanConnect;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
-
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 @WebServlet("/centerReg")
 public class CenterRegServlet extends HttpServlet {
@@ -30,9 +34,12 @@ public class CenterRegServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
-		File currentDirPath =new File("C:\\Test");
-	
+
+//        Part part = request.getPart("vUploadFilePath");
+//        String fileName = request.getParameter("vUploadFilePath");
+//        if (!fileName.isEmpty()) {
+//            part.write("C:\\Test\\"+fileName);
+//        }
 		
 		String vTitle = request.getParameter("vTitle");
 		String vStartDate = request.getParameter("vStartDate");
@@ -53,7 +60,8 @@ public class CenterRegServlet extends HttpServlet {
 		
 		int vServiceCode = Integer.parseInt(request.getParameter("vServiceCode"));
 		int vRegAmnt = Integer.parseInt(request.getParameter("vRegAmnt"));
-		String vUploadFilePath = request.getParameter("vUploadFilePath");
+		String vUploadFilePath ="C:\\Test\\";
+		vUploadFilePath += request.getParameter("vUploadFilePath");
 		String vInfo = request.getParameter("vInfo");
 		
 		
@@ -74,6 +82,9 @@ public class CenterRegServlet extends HttpServlet {
 		
 		CenterRegDAO dao = new CenterRegDAO();
 		dao.addCenterReg(CenterRegDTO);
+//		dao.listCenterReg(CenterRegDTO);
+		
+		response.sendRedirect("centerRegCheck.jsp");
 		
 //		if (result) {
 //			HttpSession session = request.getSession();
