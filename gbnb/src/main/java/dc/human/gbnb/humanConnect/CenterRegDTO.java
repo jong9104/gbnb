@@ -1,8 +1,8 @@
-package src.main.java.dc.human.gbnb.humanConnect.dto;
+package dc.human.gbnb.humanConnect;
 
-public class volunteerDTO {
+
+public class CenterRegDTO {
 	
-	private String vNo;
 	private String uId;
 	private String vTitle;
 	private String vStartDate;
@@ -12,19 +12,13 @@ public class volunteerDTO {
 	private String vRStartDate;
 	private String vREndDate;
 	private String vWorkingDay;
-	private String serviceCode;
-	private String vMaxAmnt;
-	private String vRegAmnt;
-	private String vState;
+	private int vServiceCode;
+	private int vMaxAmnt;
+	private int vRegAmnt;
+	private int vState;
 	private String vUploadFilePath;
 	private String vInfo;
-	private String cCenterName;
-	public String getvNo() {
-		return vNo;
-	}
-	public void setvNo(String vNo) {
-		this.vNo = vNo;
-	}
+	
 	public String getuId() {
 		return uId;
 	}
@@ -67,7 +61,7 @@ public class volunteerDTO {
 	public void setvRStartDate(String vRStartDate) {
 		this.vRStartDate = vRStartDate;
 	}
-	public String getvREnddate() {
+	public String getvREndDate() {
 		return vREndDate;
 	}
 	public void setvREndDate(String vREndDate) {
@@ -79,28 +73,28 @@ public class volunteerDTO {
 	public void setvWorkingDay(String vWorkingDay) {
 		this.vWorkingDay = vWorkingDay;
 	}
-	public String getServiceCode() {
-		return serviceCode;
+	public int getvServiceCode() {
+		return vServiceCode;
 	}
-	public void setServiceCode(String serviceCode) {
-		this.serviceCode = serviceCode;
+	public void setvServiceCode(int vServiceCode) {
+		this.vServiceCode = vServiceCode;
 	}
-	public String getvMaxAmnt() {
+	public int getvMaxAmnt() {
 		return vMaxAmnt;
 	}
-	public void setvMaxAmnt(String vMaxAmnt) {
+	public void setvMaxAmnt(int vMaxAmnt) {
 		this.vMaxAmnt = vMaxAmnt;
 	}
-	public String getvRegAmnt() {
+	public int getvRegAmnt() {
 		return vRegAmnt;
 	}
-	public void setvRegAmnt(String vRegAmnt) {
+	public void setvRegAmnt(int vRegAmnt) {
 		this.vRegAmnt = vRegAmnt;
 	}
-	public String getvState() {
+	public int getvState() {
 		return vState;
 	}
-	public void setvState(String vState) {
+	public void setvState(int vState) {
 		this.vState = vState;
 	}
 	public String getvUploadFilePath() {
@@ -115,13 +109,16 @@ public class volunteerDTO {
 	public void setvInfo(String vInfo) {
 		this.vInfo = vInfo;
 	}
-	public String getcCenterName() {
-		return cCenterName;
-	}
-	public void setcCenterName(String cCenterName) {
-		this.cCenterName = cCenterName;
-	}
+
+	
+
+
 	
 	
+
+
+
+
+
 	
 }

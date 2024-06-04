@@ -32,7 +32,7 @@ public class mypagePrivacyEditDAO {
 		
 		try{
 			String sql="UPDATE VOLUNTEER_USER "
-					+ "SET U_PWD='"+pw+"', U_EMAIL='"+email+"' , U_PHONE='"+phone+"', U_PHONE='"+phone+"'"
+					+ "SET U_PWD='"+pw+"', U_EMAIL='"+email+"' , U_PHONE='"+phone+"'"
 					+ "WHERE U_ID='"+id+"'";
 			
 			PreparedStatement pstmt=conn.prepareStatement(sql);

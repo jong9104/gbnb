@@ -1,7 +1,8 @@
-package dc.human.gbnb.humanConnect.servlet;
+package src.main.java.dc.human.gbnb.humanConnect.servlet;
 
 import java.io.IOException;
 
+import src.main.java.dc.human.gbnb.humanConnect.dao.centerMainDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,19 +15,24 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/centermain")
 public class centerMain extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doHandle(request,response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doHandle(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doHandle(request,response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doHandle(request, response);
 	}
-	
-	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doHandle(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		centerMainDAO dao = new centerMainDAO();
+	}
 }

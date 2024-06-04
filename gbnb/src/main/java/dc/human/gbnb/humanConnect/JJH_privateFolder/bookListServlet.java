@@ -1,20 +1,27 @@
-package src.main.java.dc.human.gbnb.humanConnect.servlet;
+package dc.human.kimbanbagi.tableJava.servlet;
 
-import java.io.IOException;
-//import java.io.PrintWriter;
-import java.util.List;
+import dc.human.kimbanbagi.tableJava.dao.*;
+import dc.human.kimbanbagi.tableJava.dto.*;
+import java.util.*;
 
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import src.main.java.dc.human.gbnb.humanConnect.dao.volunteerListDAO;
-import src.main.java.dc.human.gbnb.humanConnect.dto.volunteerDTO;
+import java.io.IOException;
 
-@WebServlet("/volunteerList")
-public class volunteerListServlet extends HttpServlet {
+@WebServlet("/bookList")
+public class bookListServlet extends HttpServlet {
+	public void init() throws ServletException {
+		System.out.println("Servlet Created");
+	}
+
+	public void destroy() {
+		System.out.println("Servlet Destroyed");
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -25,21 +32,18 @@ public class volunteerListServlet extends HttpServlet {
 			throws ServletException, IOException {
 		doHandle(request, response);
 	}
-
+	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
+		String userId = "test11";
 		
+		bookDAO dao = new bookDAO();
+		List<bookDTO> bookList = dao.getBookList(userId);
 		
-		
-		
-		volunteerListDAO dao = new volunteerListDAO();
-		List<volunteerDTO> regList = dao.getRegList();
-		
-		request.setAttribute("regList", regList);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/volunteerList.jsp");
+		request.setAttribute("bookList", bookList);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userBookList.jsp");
 		dispatcher.forward(request, response);
-		
 	}
+
 }
