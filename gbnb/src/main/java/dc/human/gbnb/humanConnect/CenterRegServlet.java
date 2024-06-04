@@ -84,7 +84,8 @@ public class CenterRegServlet extends HttpServlet {
 		dao.addCenterReg(CenterRegDTO);
 //		dao.listCenterReg(CenterRegDTO);
 		
-		response.sendRedirect("centerRegCheck.jsp");
+		request.setAttribute("vTitle", CenterRegDTO.getvTitle());	
+		request.getRequestDispatcher("/centerRegCheck.jsp").forward(request, response);
 		
 //		if (result) {
 //			HttpSession session = request.getSession();
