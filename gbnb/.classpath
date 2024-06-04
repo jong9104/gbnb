@@ -11,5 +11,11 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ojdbc8.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/tomcat-dbcp-7.0.30.jar.zip"/>
 	<classpathentry kind="lib" path="C:/Tomcat10/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.activation-2.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.el-api-4.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.servlet.jsp.jstl-2.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-2.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.servlet-api-5.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.xml.bind-api-3.0.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

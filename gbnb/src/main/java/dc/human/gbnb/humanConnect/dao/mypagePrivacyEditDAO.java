@@ -43,5 +43,9 @@ public class mypagePrivacyEditDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static void main(String[] args) {
+		
+	}
 	
 }
