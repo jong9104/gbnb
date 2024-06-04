@@ -46,12 +46,22 @@
                     </tr>
                     <tr>
                         <td rowspan="2">주소</td> <!--이거 확인해보기 표 보더 만들어서-->
+<<<<<<< HEAD
                         <td>주소DB</td>                     
+=======
+>>>>>>> refs/remotes/origin/master
                     </tr>
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
                     <tr>                        
                         <td>상세주소. 표 확인해보기</td>
+<<<<<<< HEAD
                     <tr>                        
+=======
+                    <tr>
+>>>>>>> refs/remotes/origin/master
                         <td>상세주소DB</td>
                     </tr>
                     <tr>
